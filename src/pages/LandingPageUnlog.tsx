@@ -14,14 +14,14 @@ const LandingPageUnlog: React.FC = () => {
           <div className="flex-grow flex items-center justify-center">
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                to="/landing"
-                className="bg-white text-[#4caf4f] px-8 py-4 rounded text-center min-w-[150px]"
+                to="/login"
+                className="bg-white text-primary px-8 py-4 rounded text-center min-w-[150px]"
               >
                 Login
               </Link>
               <Link
                 to="/signup"
-                className="bg-[#4caf4f] text-white px-8 py-4 rounded text-center min-w-[150px]"
+                className="bg-primary text-white px-8 py-4 rounded text-center min-w-[150px]"
               >
                 Sign up
               </Link>

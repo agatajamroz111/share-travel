@@ -106,7 +106,7 @@ export function CalendarView() {
               <div key={`slot-${dayIndex}-${time}`} className="relative h-10">
                 {isBlockStart(dayIndex, time) && (
                   <div
-                    className="absolute inset-0.5 bg-[#4caf4f] rounded-md"
+                    className="absolute inset-0.5 bg-primary rounded-md"
                     style={{
                       height: `${getBlockHeight(dayIndex, time) * 40 - 4}px`,
                     }}
@@ -119,7 +119,7 @@ export function CalendarView() {
       </div>
 
       <div className="mt-4 flex">
-        <button className="bg-[#4caf4f] text-white px-6 py-3 rounded-full hover:bg-[#3d9c40] transition-colors">
+        <button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-[#3d9c40] transition-colors">
           Dodaj nową podróż
         </button>
       </div>

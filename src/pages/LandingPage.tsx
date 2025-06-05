@@ -2,7 +2,7 @@ const LandingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <main className="container mx-auto px-4 py-6">
-        <div className="bg-[#4caf4f] text-white p-4 rounded-md mb-6">
+        <div className="bg-primary text-white p-4 rounded-md mb-6">
           <p>
             Następna zaplanowana wspólna podróż: dzisiaj, 7:30, ul. Sienkiewicza
             12!
@@ -18,34 +18,34 @@ const LandingPage: React.FC = () => {
 
             <div className="bg-white p-4 rounded-md mb-6">
               <div className="grid grid-cols-3 gap-4 mb-8">
-                <button className="bg-[#4caf4f] text-white p-3 rounded-md hover:bg-[#4caf4f]/90">
+                <button className="bg-primary text-white p-3 rounded-md hover:bg-primary/90">
                   &nbsp;
                 </button>
-                <button className="bg-[#4caf4f] text-white p-3 rounded-md hover:bg-[#4caf4f]/90">
+                <button className="bg-primary text-white p-3 rounded-md hover:bg-primary/90">
                   &nbsp;
                 </button>
-                <button className="bg-[#4caf4f] text-white p-3 rounded-md hover:bg-[#4caf4f]/90">
+                <button className="bg-primary text-white p-3 rounded-md hover:bg-primary/90">
                   &nbsp;
                 </button>
               </div>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
-                <button className="bg-[#4caf4f] text-white p-3 rounded-md hover:bg-[#4caf4f]/90">
+                <button className="bg-primary text-white p-3 rounded-md hover:bg-primary/90">
                   &nbsp;
                 </button>
-                <button className="bg-[#4caf4f] text-white p-3 rounded-md hover:bg-[#4caf4f]/90">
+                <button className="bg-primary text-white p-3 rounded-md hover:bg-primary/90">
                   &nbsp;
                 </button>
               </div>
 
               <div className="grid grid-cols-1 gap-4">
-                <button className="bg-[#4caf4f] text-white p-3 rounded-md w-1/3 hover:bg-[#4caf4f]/90">
+                <button className="bg-primary text-white p-3 rounded-md w-1/3 hover:bg-primary/90">
                   &nbsp;
                 </button>
               </div>
             </div>
 
-            <button className="bg-[#4caf4f] text-white px-6 py-3 rounded-full hover:bg-[#4caf4f]/90 w-full md:w-auto">
+            <button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 w-full md:w-auto">
               Dodaj nową podróż - przekierowauję do dodawania podróży
             </button>
           </div>

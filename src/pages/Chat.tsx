@@ -3,7 +3,7 @@ import { ArrowLeft, MoreHorizontal } from "lucide-react";
 const Chat: React.FC = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <div className="bg-[#4caf4f] text-white py-3 text-center relative">
+      <div className="bg-primary text-white py-3 text-center relative">
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <div className="absolute -top-4 left-0 right-0 flex justify-center">
             <div className="h-2 w-4 border-l-2 border-r-2 border-b-2 border-white rotate-180"></div>
@@ -18,7 +18,7 @@ const Chat: React.FC = () => {
             <ArrowLeft className="text-gray-500 mr-2" />
           </div>
 
-          <button className="bg-[#4caf4f] text-white py-3 px-4 rounded-full mb-8 text-center">
+          <button className="bg-primary text-white py-3 px-4 rounded-full mb-8 text-center">
             Nowe zaproszenie
           </button>
 
@@ -43,7 +43,7 @@ const Chat: React.FC = () => {
 
           <div className="flex-1 space-y-4 overflow-y-auto mb-4">
             <div className="max-w-[80%]">
-              <div className="bg-[#4caf4f] text-white p-4 rounded-2xl">
+              <div className="bg-primary text-white p-4 rounded-2xl">
                 <p>
                   Nowa zaproszenie! XYZ zaprasza Cię do wspólnej podróży w
                   czwartki o 7:30 ...... .....
@@ -52,7 +52,7 @@ const Chat: React.FC = () => {
               </div>
 
               <div className="mt-2">
-                <button className="bg-[#4caf4f] text-white py-3 px-4 rounded-full">
+                <button className="bg-primary text-white py-3 px-4 rounded-full">
                   Kliknij by zobaczyć w planerze!
                 </button>
               </div>
@@ -70,7 +70,7 @@ const Chat: React.FC = () => {
                 <button className="bg-[#d9d9d9] text-[#18191f] py-2 px-8 rounded-full">
                   Odrzuć
                 </button>
-                <button className="bg-[#4caf4f] text-white py-2 px-8 rounded-full">
+                <button className="bg-primary text-white py-2 px-8 rounded-full">
                   Akceptuj!
                 </button>
               </div>
