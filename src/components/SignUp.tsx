@@ -14,12 +14,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const SignUp: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,10 +42,10 @@ const SignUp: React.FC = () => {
     });
 
     if (error) {
-      alert(error.message);
+      toast(`${error.message}`);
     } else {
-      console.log("User signed in:", data);
-      // Redirect or show success
+      toast(`Confirmation link was sent to ${data.user?.email}`);
+      navigate("/login");
     }
   };
 

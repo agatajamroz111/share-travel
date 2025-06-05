@@ -3,7 +3,7 @@ import { useAuthStore } from "@/stores/useAuthStore";
 import { supabaseClient } from "@/lib/supabase";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const setUser = useAuthStore((s) => s.setUser);
+  const setUser = useAuthStore((state) => state.setUser);
 
   useEffect(() => {
     const fetchSession = async () => {

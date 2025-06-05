@@ -1,32 +1,75 @@
-import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { ProfileCircle } from "iconoir-react";
+import { useNavigate } from "react-router-dom";
 
-export const UserMenu = () => {
-  const user = useAuthStore((s) => s.user);
-
-  if (!user) {
-    return (
-      <div className="flex items-center space-x-4">
-        <Link
-          to="/login"
-          className="text-primary hover:text-[#3d8c3f] transition-colors"
-        >
-          Login
-        </Link>
-        <Link
-          to="/signup"
-          className="bg-primary text-white px-4 py-2 rounded hover:bg-[#3d8c3f] transition-colors"
-        >
-          Sign up
-        </Link>
-      </div>
-    );
-  }
+const UserMenu: React.FC = () => {
+  const logout = useAuthStore((state) => state.logout);
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    await logout();
+    navigate("/");
+  };
 
   return (
-    <Link to="/profile">
-      <ProfileCircle />
-    </Link>
+    <DropdownMenu>
+      <DropdownMenuTrigger>
+        <Button variant="outline" className="p-0">
+          <ProfileCircle />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56" align="start">
+        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            Profile
+            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            Billing
+            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            Settings
+            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem>Email</DropdownMenuItem>
+                <DropdownMenuItem>Message</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>More...</DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={handleLogout}>
+          Log out
+          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
+
+export default UserMenu;

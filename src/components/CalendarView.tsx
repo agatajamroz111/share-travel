@@ -44,21 +44,6 @@ export function CalendarView() {
     "13:30",
   ];
 
-  // Function to check if a block exists at a specific day and time
-  const hasBlock = (day: number, time: string) => {
-    return scheduleBlocks.some((block) => {
-      const blockStartIndex = timeSlots.indexOf(block.startTime);
-      const blockEndIndex = timeSlots.indexOf(block.endTime);
-      const currentTimeIndex = timeSlots.indexOf(time);
-
-      return (
-        block.day === day &&
-        currentTimeIndex >= blockStartIndex &&
-        (blockEndIndex === -1 || currentTimeIndex < blockEndIndex)
-      );
-    });
-  };
-
   // Function to get the height of a block
   const getBlockHeight = (day: number, time: string) => {
     const block = scheduleBlocks.find(
@@ -83,7 +68,7 @@ export function CalendarView() {
       <div className="grid grid-cols-[80px_repeat(7,1fr)] gap-2">
         {/* Header row with days */}
         <div className=""></div>
-        {days.map((day, index) => (
+        {days.map((day, _) => (
           <div
             key={day}
             className="text-center font-medium text-[#263238] py-2"
@@ -93,7 +78,7 @@ export function CalendarView() {
         ))}
 
         {/* Time slots and schedule blocks */}
-        {timeSlots.map((time, timeIndex) => (
+        {timeSlots.map((time, _) => (
           <>
             <div
               key={`time-${time}`}

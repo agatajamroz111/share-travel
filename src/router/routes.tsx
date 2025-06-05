@@ -2,7 +2,6 @@ import { lazy } from "react";
 
 const Main = lazy(() => import("../layout/Main"));
 
-const LandingPageUnlog = lazy(() => import("../pages/LandingPageUnlog"));
 const LandingPage = lazy(() => import("../pages/LandingPage"));
 const SignInPage = lazy(() => import("../pages/SignInPage"));
 
@@ -15,8 +14,7 @@ const routes = [
     path: "/",
     element: <Main />,
     children: [
-      { path: "", element: <LandingPageUnlog /> },
-      { path: "/landing", element: <LandingPage /> },
+      { path: "", element: <LandingPage /> },
       { path: "/login", element: <SignInPage authMode="login" /> },
       { path: "/signup", element: <SignInPage authMode="signup" /> },
       { path: "/chat", element: <Chat /> },

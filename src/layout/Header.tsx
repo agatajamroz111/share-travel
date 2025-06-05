@@ -1,4 +1,4 @@
-import { UserMenu } from "@/components/UserMenu";
+import AuthActions from "@/components/AuthActions";
 import { Link } from "react-router-dom";
 
 const Header: React.FC = () => (
@@ -6,7 +6,7 @@ const Header: React.FC = () => (
     <div className="flex-shrink-0">
       <Link to="">
         <img
-          src="/logo.png"
+          src="/logo.svg"
           alt="ShareTravel"
           width={200}
           height={60}
@@ -48,7 +48,7 @@ const Header: React.FC = () => (
       </Link>
     </nav>
 
-    <UserMenu />
+    <AuthActions />
   </header>
 );
 

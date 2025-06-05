@@ -1,5 +1,5 @@
 import "./App.css";
-import HomePage from "./pages/LandingPageUnlog";
+import HomePage from "./pages/LandingPageUnlogged";
 
 function App() {
   return (
