@@ -3,9 +3,9 @@ import { Minus, Plus } from "lucide-react";
 const Offer: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
-      <div className="bg-primary text-white py-3 px-4 text-center">
+      {/* <div className="bg-primary text-white py-3 px-4 text-center">
         Następna zaplanowana wspólna podróż: dzisiaj, 7:30, ul. Sienkiewicza 12!
-      </div>
+      </div> */}
 
       <main className="container mx-auto px-4 py-8">
         <div className="bg-[#d9d9d9] p-8 rounded-md h-screen">

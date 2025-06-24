@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { supabaseClient } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
@@ -20,18 +20,14 @@ import { useAuthStore } from "@/stores/useAuthStore";
 
 const LogIn: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogIn = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const email = emailRef.current?.value;
-    const password = passwordRef.current?.value;
-    console.log(email);
-    console.log(password);
+    console.log("Login attempt with:", { email, password });
 
     if (!email || !password) {
       alert("Please enter both email and password.");
@@ -51,8 +47,6 @@ const LogIn: React.FC = () => {
       navigate("/");
     }
   };
-
-  console.log(useAuthStore.getState().user);
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50">
@@ -75,7 +69,8 @@ const LogIn: React.FC = () => {
                 id="email"
                 type="email"
                 placeholder="m@example.com"
-                ref={emailRef}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -89,7 +84,8 @@ const LogIn: React.FC = () => {
                   id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
-                  ref={passwordRef}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
                 <Button
@@ -130,7 +126,7 @@ const LogIn: React.FC = () => {
             <Separator />
 
             <div className="text-center text-sm">
-              Don’t have an account?{" "}
+              Don't have an account?{" "}
               <Link to="/signup" className="px-0 font-normal text-primary">
                 Sign up
               </Link>

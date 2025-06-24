@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { supabaseClient } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
@@ -19,20 +19,17 @@ import { toast } from "sonner";
 
 const SignUp: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const email = emailRef.current?.value;
-    const password = passwordRef.current?.value;
-    console.log(email);
-    console.log(password);
+    console.log("Signup attempt with:", { email, password });
 
     if (!email || !password) {
-      alert("Please enter both email and password.");
+      toast("Please enter both email and password.");
       return;
     }
 
@@ -70,7 +67,8 @@ const SignUp: React.FC = () => {
                 id="email"
                 type="email"
                 placeholder="m@example.com"
-                ref={emailRef}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -84,7 +82,8 @@ const SignUp: React.FC = () => {
                   id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
-                  ref={passwordRef}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
                 <Button
